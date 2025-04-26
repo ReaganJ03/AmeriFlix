@@ -55,7 +55,7 @@
     <div><h1>AmeriFlix</h1></div>
     <div>
       <a href="#">📝 Kreate Akkount</a>
-      <a href="mailto:ameriflixcontact@gmail.com">📧 Kontakt Us</a>
+      <a href="mailto:ameriflixkontakt@gmail.com?subject=Customer%20Support%20Request">📧 Kontakt Us</a>
     </div>
   </div>
 
@@ -72,18 +72,23 @@
 
   <script>
     function playMovie() {
-      const player = document.getElementById('moviePlayer');
-      player.style.display = 'block';
+  const player = document.getElementById('moviePlayer');
+  player.style.display = 'block';
 
-      if (!localStorage.getItem('glitchPlayed')) {
-        player.src = 'glitchy-video.mp4'; //
-        localStorage.setItem('glitchPlayed', 'true');
-      } else {
-        player.src = 'normal-video.mp4'; //
-      }
+  if (!localStorage.getItem('glitchPlayed')) {
+    player.src = 'glitchy-video.mp4'; // Glitch video
+    player.play();
+    localStorage.setItem('glitchPlayed', 'true');
 
-      player.play();
-    }
+    // When glitch video ends, hide the player
+    player.onended = function() {
+      player.style.display = 'none'; // Hide the player
+    };
+  } else {
+    player.src = 'normal-video.mp4'; // Normal version
+    player.play();
+  }
+}
   </script>
 
 </body>
