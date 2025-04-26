@@ -76,10 +76,10 @@
       player.style.display = 'block';
 
       if (!localStorage.getItem('glitchPlayed')) {
-        player.src = 'glitchy-video.mp4'; // Your glitch video
+        player.src = 'glitchy-video.mp4'; //
         localStorage.setItem('glitchPlayed', 'true');
       } else {
-        player.src = 'normal-video.mp4'; // Normal version
+        player.src = 'normal-video.mp4'; //
       }
 
       player.play();
